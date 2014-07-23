@@ -1,0 +1,268 @@
+body {
+	font: 13px 'Droid Sans', verdana, sans-serif;
+	color: #353432;
+}
+
+textarea {
+	resize: none;
+}
+
+#portlet-wrapper {
+	background: white;
+	border: 1px solid #bbb;
+	max-width: 1024px;
+	margin: 0 auto;
+}
+
+form {
+	margin-top: 15px;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.hidden {
+	display: none;
+}
+
+.ui-dialog-titlebar {
+	display: none;
+}
+
+.spinner {
+	background-image: url(../images/big-spinner.gif);
+	display: block;
+	height: 66px;
+	width: 66px;
+	margin: 10px auto;
+}
+
+.search input, .search select {
+	background: white;
+	width: 95%;
+	margin: 5px 2% 10px 2%;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+/*.top {
+	width: 92%;
+	margin-left: 4%;
+}
+
+.top label {
+	width: 16%;
+	vertical-align: middle;
+	text-align: right;
+	display: inline-block;
+}
+
+.top input {
+	vertical-align: middle;
+	margin-left: 1%;
+	margin-right: 0;
+	display: inline-block;
+}
+
+.top textarea {
+	vertical-align: middle;
+	margin-left: 1%;
+	margin-right: 0;
+	display: inline-block;
+}*/
+
+.search label {
+	margin-left: 2%;
+}
+
+.search label {
+	display: block;
+}
+
+.search .button {
+	margin: 20px 0 0 0;
+	width: 100%;
+}
+
+.fourth_col {
+	padding: 2%;
+	width: 21%;
+	float: left;
+}
+
+.fourth_col select {
+	height: 27px;
+}
+
+span.header-cols {
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	word-wrap: break-word;
+}
+
+span.header-cols.first {
+	width: 14%;
+}
+
+span.header-cols.second {
+	width: 30%;
+}
+
+span.header-cols.third {
+	width: 31%;
+}
+
+span.header-cols.fourth {
+	width: 20%;
+}
+
+.divider {
+	width: 96%;
+}
+
+.noresults {
+	text-align: center;
+	font-weight: bold;
+	font-size: 18px;
+	margin-top: 3%
+}
+
+.clear {
+	clear: both;
+}
+
+.running_projects {
+	width: 96%;
+	margin: 0 2%;
+}
+
+.running_projects .icon {
+	float: left;
+	width: 5%;
+}
+
+.running_projects .project_content {
+	display: inline-block;
+	width: 100%;
+}
+
+.running_projects h2 {
+	font-size: inherit;
+	margin: 0 0 5px 0;
+	padding: 0;
+}
+
+.accordion_content span {
+	width: 100%;
+	display: inline-block;
+}
+
+.accordion_content .compound_disp {
+	width: 10% !important;
+}
+
+input.button, input.button:focus {
+	color: #353432;
+	padding: 5px 20px;
+	border: 1px solid #4E4D4A;
+	background: #fff;
+}
+
+input.button:hover, input.button:active {
+	background: #4E4D4A;
+	border: 1px solid transparent;
+	text-shadow: 0px 0px transparent;
+	color: white;
+}
+
+.header.green {
+	background-color: #dff0d8;
+}
+
+.header.light-blue {
+	background-color: #d9edf7;
+}
+
+.header.yellow {
+	background-color: #fcf8e3;
+}
+
+.header.red {
+	background-color: #f2dede;
+}
+
+.submissions {
+	list-style: none;
+	width: 100%;
+}
+
+.submissions tr {
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+.submissions tr .status {
+	padding-left: 10px;
+	width: 10%;
+}
+
+.submissions tr .submissionIO {
+	width: 50%;
+}
+
+.submissions tr .submissionIO ul {
+	list-style: none;
+	margin: 0;
+}
+
+.submissions tr .submissionIO ul li {
+	border: none;
+}
+
+.submissionIO ul li span {
+	word-wrap: break-word;
+}
+
+.submissionIO ul li span, .submissions tr .status {
+	margin: 3px 0 3px 10px;
+}
+
+.submissions tr .buttons {
+	width: 40%;
+	text-align: right;
+	padding: 4px;
+}
+
+.submissions tr .buttons .button, div.top-buttons .button {
+	margin-right: 10px;
+}
+
+div.top-buttons {
+	margin: 10px 0;
+}
+
+div.pagination {
+	padding: 20px;
+	text-align: center;
+}
+
+div.pagination a {
+	text-decoration: none;
+	color: black;
+	margin-right: 10px;
+}
+
+div.pagination a:hover {
+	text-decoration: underline;
+}
+
+div.pagination a.selected {
+	font-weight: bold;
+}
+
+.cancel-reason {
+	width: 100%;
+}
