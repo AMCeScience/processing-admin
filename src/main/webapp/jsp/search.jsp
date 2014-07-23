@@ -22,6 +22,7 @@
                 <option value="on hold">On Hold</option>
                 <option value="done">Done</option>
                 <option value="aborted">Aborted</option>
+                <option value="failed">Failed</option>
             </select>
         </div>
 

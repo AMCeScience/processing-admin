@@ -42,10 +42,10 @@
         
         <!-- load javascript function files -->
         <script type="text/javascript" src="${pageContext.request.contextPath}/js/ajax-functions.js?v=112"></script>
-        <script type="text/javascript" src="${pageContext.request.contextPath}/js/project-functions.js?v=124"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/project-functions.js?v=128"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/js/pagination.js?v=112"></script>
-        <script type="text/javascript" src="${pageContext.request.contextPath}/js/combined.js?v=170"></script>
-        <script type="text/javascript" src="${pageContext.request.contextPath}/js/search.js?v=125"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/combined.js?v=171"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/search.js?v=126"></script>
     </head>
     <body>
         <div id="portlet-wrapper">

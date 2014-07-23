@@ -180,7 +180,8 @@ function build_inside_project_html(project_data) {
 			<div class='top-buttons'>";
 				if (project_data.overall_status.indexOf("In Progress") > -1
 					|| project_data.overall_status.indexOf("In Preparation") > -1
-					|| project_data.overall_status.indexOf("On Hold") > -1) {
+					|| project_data.overall_status.indexOf("On Hold") > -1
+					|| project_data.overall_status.indexOf("Resuming") > -1) {
 					project_html += "<input class='button update' type='button' value='Refresh'/>";
 				}
 				

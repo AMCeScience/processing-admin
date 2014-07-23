@@ -1,10 +1,13 @@
 function init_project_buttons() {
 	$('.details').click(function() {
 		function ajax_continue(response) {
-        	$('.dialog-message').text(response.message + " " + response.description);
+			$('.dialog-message').html('<p class="dialog-error-msg"></p><p class="dialog-error-description"></p>')
+        	$('.dialog-error-msg', '.dialog-message').text(response.message);
+			$('.dialog-error-description', '.dialog-message').text(response.description);
         	
         	$('.dialog-div').dialog({
         		modal: true,
+        		width: 500,
         		buttons: {
         			Ok: function() {
         				$(this).dialog('close');
