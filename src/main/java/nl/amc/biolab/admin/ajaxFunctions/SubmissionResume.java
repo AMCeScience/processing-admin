@@ -26,7 +26,7 @@ public class SubmissionResume extends AjaxInterface {
         client.resume(submissionId);
 
         // Get some info from database
-        String newStatus = _getPersistence().getSubmission(submissionId).getStatus();
+        String newStatus = _getPersistence().get.submission(submissionId).getStatus();
         
         log("New status after resume: " + newStatus);
         

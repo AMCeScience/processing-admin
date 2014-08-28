@@ -25,7 +25,7 @@ function init_project_buttons() {
 		}
 		
 		get_details(ajax_data, ajax_continue);
-	})
+	});
 	
 	// Update/Refresh button
     $('.update').click(function() {

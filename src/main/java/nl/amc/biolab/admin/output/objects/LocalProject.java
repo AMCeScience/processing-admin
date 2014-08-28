@@ -6,11 +6,11 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 import nl.amc.biolab.admin.constants.VarConfig;
-import nl.amc.biolab.nsgdm.DataElement;
-import nl.amc.biolab.nsgdm.Processing;
-import nl.amc.biolab.nsgdm.Project;
-import nl.amc.biolab.nsgdm.Submission;
-import nl.amc.biolab.nsgdm.SubmissionIO;
+import nl.amc.biolab.datamodel.objects.DataElement;
+import nl.amc.biolab.datamodel.objects.Processing;
+import nl.amc.biolab.datamodel.objects.Project;
+import nl.amc.biolab.datamodel.objects.Submission;
+import nl.amc.biolab.datamodel.objects.SubmissionIO;
 
 /**
  * Takes the nsgdm objects and creates object with more complete data

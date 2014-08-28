@@ -10,8 +10,8 @@ import java.util.regex.Pattern;
 
 import nl.amc.biolab.admin.ajaxHandlers.AjaxInterface;
 import nl.amc.biolab.admin.output.objects.LocalProject;
-import nl.amc.biolab.nsgdm.Processing;
-import nl.amc.biolab.nsgdm.Project;
+import nl.amc.biolab.datamodel.objects.Processing;
+import nl.amc.biolab.datamodel.objects.Project;
 
 /**
  * Searches for projects and their data and outputs formatted json data
@@ -177,27 +177,27 @@ public class SearchProjects extends AjaxInterface {
      * @return Formatted sql string ready for input into the database
      */
     private String _buildSql() {
-    	_getPersistence().setSelect(SELECTS);
-        _getPersistence().setTables(TABLES);
-        _getPersistence().setJoin(JOINS);
+		_getSQLBuilder().setSelect(SELECTS);
+        _getSQLBuilder().setTables(TABLES);
+        _getSQLBuilder().setJoin(JOINS);
         
         if (WHERES.size() > 0) {
-        	_getPersistence().setWhere(WHERES);
+        	_getSQLBuilder().setWhere(WHERES);
         }
         
         if (ORDERS.size() > 0) {
-        	_getPersistence().setSort(ORDERS);
+        	_getSQLBuilder().setSort(ORDERS);
         }
         
         if (LIMIT.length() > 0) {
-        	_getPersistence().setLimit(LIMIT);
+        	_getSQLBuilder().setLimit(LIMIT);
         }
         
         // Get SQL string
-        String sql = _getPersistence().getQuery();
+        String sql = _getSQLBuilder().getQuery();
         
         // Clear variable
-        _getPersistence().resetQuery();
+        _getSQLBuilder().resetQuery();
         
         log("SQL search string: " + sql);
         
@@ -225,12 +225,12 @@ public class SearchProjects extends AjaxInterface {
         
         // Add user id
         if (_getSearchTermEntry("liferay_user") != null) {	
-            WHERES.put(_getPersistence().getWhere("u.LiferayID", "=", _getSearchTermEntry("liferay_user")), "AND");
+            WHERES.put(_getSQLBuilder().getWhere("u.LiferayID", "=", _getSearchTermEntry("liferay_user")), "AND");
         }
         
         // Add project id
         if (_getSearchTermEntry("processing_id") != null) {
-        	WHERES.put(_getPersistence().getWhere("po.ProcessingID", "=", _getSearchTermEntry("processing_id")), "AND");
+        	WHERES.put(_getSQLBuilder().getWhere("po.ProcessingID", "=", _getSearchTermEntry("processing_id")), "AND");
         }
         
         // Add where parameters to query
@@ -255,7 +255,7 @@ public class SearchProjects extends AjaxInterface {
         			// Add the 'and' terms
     	    		for (String andTerm : andTerms) {
     	    			if (andTerm.length() > 0) {
-    	    				andList.add(_getPersistence().getWhere(concat, "LIKE", "LOWER('%" + andTerm + "%')"));
+    	    				andList.add(_getSQLBuilder().getWhere(concat, "LIKE", "LOWER('%" + andTerm + "%')"));
     	    			}
     	    		}
     	    		
@@ -270,7 +270,7 @@ public class SearchProjects extends AjaxInterface {
         		
         		// Add the 'or' terms
     			if (term.length() > 0) {
-    				tempList.add(_getPersistence().getWhere(concat, "LIKE", "LOWER('%" + term + "%')"));
+    				tempList.add(_getSQLBuilder().getWhere(concat, "LIKE", "LOWER('%" + term + "%')"));
     				
     				tempMap.put(tempList, "OR");
     			}
@@ -288,7 +288,7 @@ public class SearchProjects extends AjaxInterface {
             
             while (statusIter.hasNext()) {
                 // WHERE status = xxxxx
-            	tempList.add(_getPersistence().getWhere("po.ProcessingStatus", "LIKE", "'%" + statusIter.next() + "%'"));
+            	tempList.add(_getSQLBuilder().getWhere("po.ProcessingStatus", "LIKE", "'%" + statusIter.next() + "%'"));
             }
             
             tempMap.put(tempList, "OR");

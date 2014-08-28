@@ -4,6 +4,7 @@ import java.util.LinkedHashMap;
 
 import nl.amc.biolab.admin.constants.VarConfig;
 import nl.amc.biolab.persistencemanager.PersistenceManagerPlugin;
+import nl.amc.biolab.persistencemanager.SQLBuilderPlugin;
 
 /**
  * Interface class for all the ajax requests.
@@ -15,6 +16,7 @@ public abstract class AjaxInterface extends VarConfig {
     private JSONOutput JSONOBJ;
     private LinkedHashMap<String, String> PARAMS;
     private PersistenceManagerPlugin PERSISTENCE;
+    private SQLBuilderPlugin SQLBUILDER;
     
     /**
      * Init function where the parameters for this ajax request and the response object are set.
@@ -26,6 +28,7 @@ public abstract class AjaxInterface extends VarConfig {
         
         // Get new object of the persistence manager
         _setPersistence(new PersistenceManagerPlugin());
+        _setSQLBuilder(new SQLBuilderPlugin());
 
         // Open a session
         _getPersistence().init();
@@ -123,5 +126,21 @@ public abstract class AjaxInterface extends VarConfig {
      */
     protected PersistenceManagerPlugin _getPersistence() {
         return PERSISTENCE;
+    }
+    
+    /**
+     * Set the sql builder class variable.
+     * @param sqlBuilder SQLBuilderPlugin object.
+     */
+    protected void _setSQLBuilder(SQLBuilderPlugin sqlBuilder) {
+    	SQLBUILDER = sqlBuilder;
+    }
+    
+    /**
+     * Get the sql builder object.
+     * @return SQLBuilder object.
+     */
+    protected SQLBuilderPlugin _getSQLBuilder() {
+    	return SQLBUILDER;
     }
 }

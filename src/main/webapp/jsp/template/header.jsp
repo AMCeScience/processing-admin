@@ -44,7 +44,7 @@
         <script type="text/javascript" src="${pageContext.request.contextPath}/js/ajax-functions.js?v=112"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/js/project-functions.js?v=128"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/js/pagination.js?v=112"></script>
-        <script type="text/javascript" src="${pageContext.request.contextPath}/js/combined.js?v=171"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/combined.js?v=172"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/js/search.js?v=126"></script>
     </head>
     <body>

@@ -26,7 +26,7 @@ public class SubmissionResumeAll extends AjaxInterface {
         client.resumeAll(processingId);
         
         // Get some info from database
-        String newStatus = _getPersistence().getProcessing(processingId).getStatus();
+        String newStatus = _getPersistence().get.processing(processingId).getStatus();
         
         // Output
         _getJSONObj().add("new_status", newStatus);

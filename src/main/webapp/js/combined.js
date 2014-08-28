@@ -216,7 +216,7 @@ function build_inside_project_html(project_data) {
 	                	"<td class='buttons'>\
 	                		<input class='button details' type='button' data-submission_id='" + submission.submission_id + "' value='Details'/>";
 		                
-		                if (submission.status.indexOf("On Hold") > -1) {
+		                if (submission.status.indexOf("On Hold") > -1 || submission.status.indexOf("In Progress") > -1) {
 		                	project_html += "<input class='button resume' type='button' data-submission_id='" + submission.submission_id + "' value='Resume'/>";
 		                }
 		                
