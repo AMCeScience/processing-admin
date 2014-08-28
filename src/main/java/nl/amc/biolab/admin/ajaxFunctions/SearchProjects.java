@@ -131,10 +131,8 @@ public class SearchProjects extends AjaxInterface {
     	SELECTS = new LinkedHashMap<String, String>();
         
         // Add selections
-        SELECTS.put("p.*", null);
-        SELECTS.put("po.*", null);
-        SELECTS.put("app.*", null);
-        SELECTS.put("CONCAT(u.FirstName, ' ', u.LastName)", "UserName");
+        SELECTS.put("{p.*}", null);
+        SELECTS.put("{po.*}", null);
     	
         int page_nr = Integer.parseInt(_getSearchTermEntry("page"));
         int items_per_page = config.getItemsPerPage(); 
