@@ -1,4 +1,6 @@
-package crappy.logger;
+package dockingadmin.crappy.logger;
+
+import dockingadmin.crappy.logger.Logger;
 
 /**
  * Simple timer which outputs the logged time with a message to the logs

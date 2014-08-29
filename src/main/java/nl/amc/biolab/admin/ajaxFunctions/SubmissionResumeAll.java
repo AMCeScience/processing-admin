@@ -16,7 +16,7 @@ public class SubmissionResumeAll extends AjaxInterface {
         _resumeAllSubmissions();
     }
     
-    private void _resumeAllSubmissions() {        
+    private void _resumeAllSubmissions() {
         ProcessingManagerClient client = new ProcessingManagerClient(config.getProcessingWSDL());
         
         // Get params

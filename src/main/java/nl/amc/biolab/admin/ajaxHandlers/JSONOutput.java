@@ -4,16 +4,16 @@ import java.io.IOException;
 
 import javax.portlet.ResourceResponse;
 
-import nl.amc.biolab.admin.constants.VarConfig;
-
 import org.json.simple.JSONObject;
+
+import dockingadmin.crappy.logger.Logger;
 
 /**
  * JSON class which makes communication with the client easier, set a ResourceResponse object and add data to the JSONObject to communicate
  *
  * @author Allard van Altena
  */
-public class JSONOutput extends VarConfig {
+public class JSONOutput extends Logger {
     private JSONObject JSONObj;
     private ResourceResponse RESPONSE;
     

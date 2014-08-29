@@ -3,6 +3,7 @@ package nl.amc.biolab.admin.ajaxHandlers;
 import java.util.LinkedHashMap;
 
 import nl.amc.biolab.admin.constants.VarConfig;
+import nl.amc.biolab.exceptions.PersistenceException;
 import nl.amc.biolab.persistencemanager.PersistenceManagerPlugin;
 import nl.amc.biolab.persistencemanager.SQLBuilderPlugin;
 
@@ -30,17 +31,25 @@ public abstract class AjaxInterface extends VarConfig {
         _setPersistence(new PersistenceManagerPlugin());
         _setSQLBuilder(new SQLBuilderPlugin());
 
-        // Open a session
-        _getPersistence().init();
-        
-        _setJSONObj(response);
-        _setParams(params);
-        
-        // Call the _run function, this is overridden in the instantiated class of this interface
-        _run();
-        
-        // Close the session
-        _getPersistence().shutdown();
+        try {
+	        // Open a session
+	        try {
+	        	_getPersistence().init();
+	        } catch(PersistenceException e) {
+	        	log(e.getMessage());
+	        	
+	        	return;
+	        }
+	        
+	        _setJSONObj(response);
+	        _setParams(params);
+	        
+	        // Call the _run function, this is overridden in the instantiated class of this interface
+	        _run();
+        } finally {
+            // Close the session
+            _getPersistence().shutdown();
+        }
     }
     
     /**

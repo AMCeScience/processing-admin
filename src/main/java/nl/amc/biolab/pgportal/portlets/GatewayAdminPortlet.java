@@ -11,7 +11,7 @@ import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
 
 import nl.amc.biolab.admin.ajaxHandlers.AjaxDispatcher;
-import crappy.logger.Logger;
+import dockingadmin.crappy.logger.Logger;
 
 /**
  * @author Allard van Altena
@@ -23,7 +23,7 @@ public class GatewayAdminPortlet extends GenericPortlet {
     public GatewayAdminPortlet() {}
 
     /**
-     * Handles view changes, called by the handleGoToPage method and when loading the page
+     * Handles view changes, called when loading the page
      * @param request Handled by porlet http://docs.liferay.com/portlet-api/2.0/javadocs/javax/portlet/RenderRequest.html
      * @param response Handled by portlet http://docs.liferay.com/portlet-api/2.0/javadocs/javax/portlet/RenderResponse.html
      */

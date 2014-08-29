@@ -7,14 +7,14 @@ import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
 
 import nl.amc.biolab.admin.ajaxFunctions.AjaxError;
-import nl.amc.biolab.admin.constants.VarConfig;
+import dockingadmin.crappy.logger.Logger;
 
 /**
  * This class handles calling the appropriate class for the ajax request and passes on the ajax parameters.
  * 
  * @author Allard van Altena
  */
-public class AjaxDispatcher extends VarConfig {
+public class AjaxDispatcher extends Logger {
     private AjaxInterface AJAXOBJ;
             
     public AjaxDispatcher() {}

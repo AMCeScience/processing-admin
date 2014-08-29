@@ -5,19 +5,19 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-import nl.amc.biolab.admin.constants.VarConfig;
 import nl.amc.biolab.datamodel.objects.DataElement;
 import nl.amc.biolab.datamodel.objects.Processing;
 import nl.amc.biolab.datamodel.objects.Project;
 import nl.amc.biolab.datamodel.objects.Submission;
 import nl.amc.biolab.datamodel.objects.SubmissionIO;
+import dockingadmin.crappy.logger.Logger;
 
 /**
  * Takes the nsgdm objects and creates object with more complete data
  *
  * @author Allard
  */
-public class LocalProject extends VarConfig {
+public class LocalProject extends Logger {
     // Project items
     private Long ID = null;
     private String NAME = "";

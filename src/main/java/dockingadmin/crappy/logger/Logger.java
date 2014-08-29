@@ -1,4 +1,4 @@
-package crappy.logger;
+package dockingadmin.crappy.logger;
 
 import java.util.Date;
 
