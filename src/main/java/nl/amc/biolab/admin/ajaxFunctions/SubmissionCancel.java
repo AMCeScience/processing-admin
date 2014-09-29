@@ -31,7 +31,7 @@ public class SubmissionCancel extends AjaxInterface {
         log("done");
         
         // Get some info from database
-        String newStatus = _getPersistence().get.submission(submissionId).getStatus();
+        String newStatus = _getPersistence().get.submission(submissionId).getLastStatus().getValue();
         
         log("New status after cancel: " + newStatus);
         

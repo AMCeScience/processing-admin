@@ -1,7 +1,6 @@
 package nl.amc.biolab.persistencemanager;
 
 import java.math.BigInteger;
-import java.sql.Connection;
 import java.util.List;
 
 import nl.amc.biolab.datamodel.manager.PersistenceManager;
@@ -14,8 +13,6 @@ import nl.amc.biolab.datamodel.objects.Project;
  * @author Allard van Altena
  */
 public class PersistenceManagerPlugin extends PersistenceManager {
-	Connection connect = null;
-	
 	/**
 	 * Searches the database with the provided sql, the sql should contain a join of Project and Processing for this to work
 	 * @param sql Sql by which we search for the projects, should contain a join of Project and Processing tables

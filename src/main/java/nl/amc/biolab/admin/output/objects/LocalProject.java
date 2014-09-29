@@ -22,7 +22,7 @@ public class LocalProject extends Logger {
     private Long ID = null;
     private String NAME = "";
     private String DESCRIPTION = "";
-    private String OWNER = "";
+    private String OWNER = null;
     private String APPLICATION = "";
     private String OVERALL_STATUS = "";
     
@@ -115,9 +115,8 @@ public class LocalProject extends Logger {
     	HashMap<String, Object> dataMap = new HashMap<String, Object>();
     	
     	dataMap.put("name", dataEl.getName());
-    	dataMap.put("scan_id", dataEl.getScanID());
+    	dataMap.put("scan_id", dataEl.getValueByName("ligand_count"));
     	dataMap.put("uri", dataEl.getURI());
-    	dataMap.put("subject", dataEl.getSubject());
     	dataMap.put("type", dataEl.getType());
     	dataMap.put("format", dataEl.getFormat());
     	dataMap.put("date", (dataEl.getDate() != null ? dataEl.getDate().toString() : ""));
@@ -219,7 +218,7 @@ public class LocalProject extends Logger {
     	HashMap<String, Object> local = new HashMap<String, Object>();
     	
     	local.put("submission_id", submission.getDbId());
-    	local.put("status", submission.getStatus());
+    	local.put("status", submission.getLastStatus().getValue());
     	local.put("submission", submission.getName());
     	local.put("submissionIO", _getSubmissionIOs());
     	

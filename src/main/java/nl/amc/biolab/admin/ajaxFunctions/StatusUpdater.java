@@ -31,7 +31,7 @@ public class StatusUpdater extends VarConfig {
 			db.init();
 
 	        // Get the updated status from the database
-	        newStatus = db.get.processing(processId).getSubmissions().iterator().next().getStatus();
+	        newStatus = db.get.processing(processId).getSubmissions().iterator().next().getLastStatus().getValue();
 		} catch (PersistenceException e) {
 			log(e.getMessage());
 		} finally {
