@@ -159,9 +159,10 @@ function project_html(project_data) {
     return html =
         "<h3 class='header " + header_class + " " + header_div + project_data.project_id + project_data.processing_id + "'>\
         	<span class='header-cols first'>" + project_data.date_started + "</span>\
-    		| <span class='header-cols second'>" + project_data.overall_status + "</span>\
-			| <span class='header-cols third'>" + project_data.application + "</span>\
-			| <span class='header-cols fourth'>" + project_data.user + "</span>\
+    		| <span class='header-cols second'>" + project_data.project_name + "</span>\
+        	| <span class='header-cols third'>" + project_data.overall_status + "</span>\
+			| <span class='header-cols fourth'>" + project_data.application + "</span>\
+			| <span class='header-cols fifth'>" + project_data.user + "</span>\
 		</h3>\
         <div class='project_data_div " + data_div + project_data.project_id + project_data.processing_id + "' data-project=''>\
             <div class='accordion_content'>\

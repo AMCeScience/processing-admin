@@ -112,11 +112,15 @@ span.header-cols.second {
 }
 
 span.header-cols.third {
-	width: 31%;
+	width: 21%;
 }
 
 span.header-cols.fourth {
-	width: 20%;
+	width: 21%;
+}
+
+span.header-cols.fifth {
+	width: 14%;	
 }
 
 .divider {
