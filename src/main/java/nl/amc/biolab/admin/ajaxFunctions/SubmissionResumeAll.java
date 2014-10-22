@@ -1,7 +1,6 @@
 package nl.amc.biolab.admin.ajaxFunctions;
 
 import nl.amc.biolab.admin.ajaxHandlers.AjaxInterface;
-import nl.amc.biolab.nsg.pm.ProcessingManagerClient;
 
 /**
  * Calls the processing manager resumeAll function and returns ajax object
@@ -17,13 +16,13 @@ public class SubmissionResumeAll extends AjaxInterface {
     }
     
     private void _resumeAllSubmissions() {
-        ProcessingManagerClient client = new ProcessingManagerClient(config.getProcessingWSDL());
+//        ProcessingManagerClient client = new ProcessingManagerClient(VarConfig.getProcessingWSDL());
         
         // Get params
         Long processingId = new Long(_getSearchTermEntry("processing_id"));
         
         // Call client
-        client.resumeAll(processingId);
+//        client.resumeAll(processingId);
         
         // Get some info from database
         String newStatus = _getPersistence().get.processing(processingId).getStatus();

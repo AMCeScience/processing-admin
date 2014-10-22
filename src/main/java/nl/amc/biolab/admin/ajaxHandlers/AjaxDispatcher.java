@@ -34,7 +34,7 @@ public class AjaxDispatcher extends Logger {
         // Init AjaxInterface as null
         _setAjaxObj(null);
         
-        log(callFunction);
+        Logger.log(callFunction, Logger.debug);
         
         // Get called for class, catch errors
         try {
@@ -61,7 +61,7 @@ public class AjaxDispatcher extends Logger {
         	_setAjaxObj(new AjaxError());
         	_getAjaxObj().init(params, new JSONOutput(response));
         	_getAjaxObj()._getJSONObj().add("error_val", error_msg);
-        	log(error_msg);
+        	Logger.log(error_msg, Logger.error);
         }
     }
     
@@ -69,10 +69,10 @@ public class AjaxDispatcher extends Logger {
      * Writes the ajax response to the client
      */
     public void response() {
-        log("Writing response."); 
+        Logger.log("Writing response.", Logger.debug); 
        
         if(!_getAjaxObj().getResponse()) {
-            log("Ajax message not set.");
+            Logger.log("Ajax message not set.", Logger.error);
         }
     }
     
@@ -100,6 +100,12 @@ public class AjaxDispatcher extends Logger {
         
         // Add extra parameters
         paramMap.put("callFunction", params.getResourceID().toString());
+        
+        if (params.isUserInRole("administrator")) {
+    		paramMap.put("liferay_user", "false");
+    	} else {
+    		paramMap.put("liferay_user", params.getRemoteUser());
+    	}
         
         return paramMap;
     }

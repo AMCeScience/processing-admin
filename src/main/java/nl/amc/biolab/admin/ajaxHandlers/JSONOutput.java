@@ -42,7 +42,7 @@ public class JSONOutput extends Logger {
      */
     public boolean echo() {        
         if (_getJSONObj().toString().length() < 4000) {
-            log.log("writing response " + _getJSONObj().toString());
+            Logger.log("writing response " + _getJSONObj().toString(), Logger.debug);
         }
 
         try {
@@ -56,7 +56,7 @@ public class JSONOutput extends Logger {
                 return true;
             }
         } catch(IOException e) {
-            log.log(e);
+            Logger.log(e, Logger.exception);
         }
         
         return false;

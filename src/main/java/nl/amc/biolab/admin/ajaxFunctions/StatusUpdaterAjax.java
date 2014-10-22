@@ -1,5 +1,6 @@
 package nl.amc.biolab.admin.ajaxFunctions;
 
+import dockingadmin.crappy.logger.Logger;
 import nl.amc.biolab.admin.ajaxHandlers.AjaxInterface;
 
 /**
@@ -19,13 +20,13 @@ public class StatusUpdaterAjax extends AjaxInterface {
         // Get processId we want to update from the ajax params
         Long processId = new Long(_getSearchTermEntry("processing_id"));
         
-        log("updating status...");
+        Logger.log("updating status...", Logger.debug);
         
         // Update status
         StatusUpdater status = new StatusUpdater();
         String newStatus = status.updateStatus(processId);
         
-        log("done");
+        Logger.log("done", Logger.debug);
         
         // Output the new status to the ajax request
         _getJSONObj().add("project_id", _getSearchTermEntry("project_id"));

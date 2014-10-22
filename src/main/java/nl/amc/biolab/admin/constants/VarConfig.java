@@ -9,25 +9,8 @@ import dockingadmin.crappy.logger.Logger;
  *
  * @author Allard van Altena
  */
-public class VarConfig extends Logger {
-	private final String file_path = "guse/apache-tomcat-6.0.36/webapps/config.json";
-	private final String app_name = "admin-page";
-	private ConfigurationManager config_file;
-    
-    public VarConfig config;
-    
-    /**
-     * Constructor which reads the configuration file, also exposes the config variable to all extending classes
-     */
-    public VarConfig() {
-    	try {
-			this.config_file = new ConfigurationManager(this.file_path);
-		} catch (ReaderException e) {
-			log(e.getMessage());
-		}
-    	
-    	config = this;
-    }
+public class VarConfig {
+	private static final String app_name = "admin-page";
     
     /**
      * Get configuration item with certain name in String.
@@ -35,11 +18,11 @@ public class VarConfig extends Logger {
      * @return String of configuration item belonging to the input 'name'
      * @throws Exception Throws exception when name does not exist in file
      */
-    public String getItem(String name) {
+    public static String getItem(String name) {
     	try {
-    		return this.config_file.read.getStringItem(this.app_name, name);
+    		return ConfigurationManager.read.getStringItem(VarConfig.app_name, name);
     	} catch(ReaderException e) {
-    		log(e.getMessage());
+    		Logger.log(e.getMessage(), Logger.exception);
     	}
     	
     	return null;
@@ -49,11 +32,11 @@ public class VarConfig extends Logger {
      * Get boolean whether if the site is in development mode
      * @return Boolean whether if the site is in development mode
      */
-    public boolean getIsDev() {
+    public static boolean getIsDev() {
     	try {
-			return this.config_file.read.getBooleanItem("is_dev");
+			return ConfigurationManager.read.getBooleanItem("is_dev");
 		} catch (ReaderException e) {
-			log(e.getMessage());
+			Logger.log(e.getMessage(), Logger.exception);
 		}
     	
     	return false;
@@ -63,11 +46,11 @@ public class VarConfig extends Logger {
      * Get items per page configuration item
      * @return Integer of items per page
      */
-    public int getItemsPerPage() {
+    public static int getItemsPerPage() {
     	try {
-    		return this.config_file.read.getIntegerItem(this.app_name, "items_per_page");
+    		return ConfigurationManager.read.getIntegerItem(VarConfig.app_name, "items_per_page");
     	} catch(ReaderException e) {
-    		log(e.getMessage());
+    		Logger.log(e.getMessage(), Logger.exception);
     	}
     	
     	return 0;
@@ -77,7 +60,7 @@ public class VarConfig extends Logger {
      * Get processing manager WSDL url
      * @return Processing manager WSDL url
      */
-    public String getProcessingWSDL() {
+    public static String getProcessingWSDL() {
         return getItem("processing_wsdl");
     }
 }

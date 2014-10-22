@@ -1,7 +1,7 @@
 package nl.amc.biolab.admin.ajaxFunctions;
 
 import nl.amc.biolab.admin.ajaxHandlers.AjaxInterface;
-import nl.amc.biolab.nsg.pm.ProcessingManagerClient;
+import dockingadmin.crappy.logger.Logger;
 
 /**
  * Calls the processing manager resume function and returns json object
@@ -17,18 +17,18 @@ public class SubmissionResume extends AjaxInterface {
     }
     
     private void _resumeSubmission() {
-        ProcessingManagerClient client = new ProcessingManagerClient(config.getProcessingWSDL());
+//        ProcessingManagerClient client = new ProcessingManagerClient(VarConfig.getProcessingWSDL());
         
         // Get params
         Long submissionId = new Long(_getSearchTermEntry("submission_id"));
         
         // Call client
-        client.resume(submissionId);
+//        client.resume(submissionId);
 
         // Get some info from database
         String newStatus = _getPersistence().get.submission(submissionId).getLastStatus().getValue();
         
-        log("New status after resume: " + newStatus);
+        Logger.log("New status after resume: " + newStatus, Logger.debug);
         
         // Output
         _getJSONObj().add("project_id", _getSearchTermEntry("project_id"));

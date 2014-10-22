@@ -25,6 +25,12 @@
             <short-title>Admin Page</short-title>
             <keywords>text</keywords>
         </portlet-info>
+        
+        <security-role-ref>
+            <role-name>administrator</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>user</role-name>
+        </security-role-ref>
     </portlet>
-
 </portlet-app>

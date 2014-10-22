@@ -34,6 +34,6 @@ public class Counter extends Logger {
 	 * Stop the counter and log the result
 	 */
 	public void stop() {
-		log("Execution time " + MSG + ": " + ((System.currentTimeMillis() - startTime) / 1000) + " sec");
+		Logger.log("Execution time " + MSG + ": " + ((System.currentTimeMillis() - startTime) / 1000) + " sec", Logger.debug);
 	}
 }

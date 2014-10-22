@@ -63,14 +63,30 @@ function trigger_search(scope) {
     
     var search_terms = $('input[name=search_terms]', scope).val();
     var date_started = $('select[name=date_started] option:selected', scope).val();
+    var project_name = $('select[name=project_name] option:selected', scope).val();
     var status = "all";
     if ($('select[name=status]', scope).length > 0) {
         status = $('select[name=status] option:selected', scope).val();
     }
     
+    if (status == 'all') {
+    	status = 'in preparation, in progress, on hold, done, aborted, failed';
+    }
+    
+    if (status == 'running') {
+    	status = 'in preparation, in progress, on hold';
+    }
+    
+    if (status == 'stopped') {
+    	status = 'done, aborted, failed';
+    }
+    
+    log(status);
+    
     var this_search = {
         search_terms: search_terms,
         date_started: date_started,
+        project_name: project_name,
         status: status,
         page: page
     };

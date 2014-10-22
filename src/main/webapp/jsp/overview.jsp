@@ -3,7 +3,7 @@
 
 <script type="text/javascript">
     $(function() {
-        admin_overview();
+    	project_display();
     });
 </script>
 
