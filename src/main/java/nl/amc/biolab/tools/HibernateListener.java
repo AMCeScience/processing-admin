@@ -9,7 +9,7 @@ import nl.amc.biolab.datamodel.manager.HibernateUtil;
 import dockingadmin.crappy.logger.Logger;
 
 public class HibernateListener implements ServletContextListener {
-	private final String file_path = "/home/tomcat/liferay-portal-6.2-ce-ga2/tomcat-7.0.42/conf/config.json";
+	private final String file_path = System.getProperty("catalina.base") + "/conf/config.json";
 
     public void contextInitialized(ServletContextEvent event) {
         try {

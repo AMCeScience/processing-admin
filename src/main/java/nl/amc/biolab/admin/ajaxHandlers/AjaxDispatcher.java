@@ -102,7 +102,7 @@ public class AjaxDispatcher extends Logger {
         paramMap.put("callFunction", params.getResourceID().toString());
         
         if (params.isUserInRole("administrator")) {
-    		paramMap.put("liferay_user", "false");
+    		paramMap.put("liferay_user", "administrator");
     	} else {
     		paramMap.put("liferay_user", params.getRemoteUser());
     	}

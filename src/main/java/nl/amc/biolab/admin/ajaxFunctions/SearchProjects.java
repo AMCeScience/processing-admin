@@ -226,7 +226,7 @@ public class SearchProjects extends AjaxInterface {
         // We are at: SELECT ... FROM ... JOIN ... ON ...
         
         // Add user id
-        if (_getSearchTermEntry("liferay_user") != null && !_getSearchTermEntry("liferay_user").equals("false")) {	
+        if (_getSearchTermEntry("liferay_user") != null && !_getSearchTermEntry("liferay_user").equals("administrator")) {	
             WHERES.put(_getSQLBuilder().getWhere("u.LiferayID", "=", _getSearchTermEntry("liferay_user")), "AND");
         }
         
