@@ -57,12 +57,12 @@ public class LocalProject extends Logger {
         _setID(project.getDbId());
         _setName(project.getName());
         _setDescription(project.getDescription());
-        _setOwner(project.getOwner());
         
         _setProcessingID(processing.getDbId());
         _setProjectStatus(processing.getStatus());
         _setDateStarted(processing.getDate());
         _setApplication(processing.getApplication().getName());
+        _setOwner(processing.getUser().getFirstName() + " " + processing.getUser().getLastName());
         
         if (_getFullReport()) {
 	        // Get submissions for this project + processing
@@ -115,7 +115,7 @@ public class LocalProject extends Logger {
     	HashMap<String, Object> dataMap = new HashMap<String, Object>();
     	
     	dataMap.put("name", dataEl.getName());
-    	dataMap.put("scan_id", dataEl.getValueByName("ligand_count"));
+    	dataMap.put("ligand_count", dataEl.getValueByName("ligand_count"));
     	dataMap.put("uri", dataEl.getURI());
     	dataMap.put("type", dataEl.getType());
     	dataMap.put("format", dataEl.getFormat());

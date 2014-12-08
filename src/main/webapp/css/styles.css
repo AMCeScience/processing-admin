@@ -80,43 +80,13 @@ form {
 	-o-transform: rotate(45deg); /* Opera */
 }
 
-.new_job input, .new_job textarea, .search input, .search select {
+.search input, .search select {
 	width: 95%;
 	margin: 5px 2% 10px 2%;
 }
 
 .search input {
 	height: 8px;
-}
-
-.new_job input, .new_job textarea {
-	width: 77%;
-}
-
-.top {
-	width: 92%;
-	margin-left: 4%;
-}
-
-.top label {
-	width: 16%;
-	vertical-align: middle;
-	text-align: right;
-	display: inline-block;
-}
-
-.top input {
-	vertical-align: middle;
-	margin-left: 1%;
-	margin-right: 0;
-	display: inline-block;
-}
-
-.top textarea {
-	vertical-align: middle;
-	margin-left: 1%;
-	margin-right: 0;
-	display: inline-block;
 }
 
 .new_job label, .search label {
@@ -127,137 +97,14 @@ form {
 	display: block;
 }
 
-.middle {
-	margin: 1% 0 0 4%;
-	width: 92%;
-}
-
-.middle .third_col.first {
-	margin-left: 2%
-}
-
-.third_col {
-	width: 31.1%;
-	margin-left: 1%;
-	float: left;
-	border: 1px solid #ccc;
-}
-
-.third_col h3 {
-	margin: 0 -1px 0 -1px;
-	background: #94BA65;
-	line-height: 30px;
-	position: relative;
-	top: -1px;
-	color: white;
-	text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
-	text-align: center;
-	font-size: 16px;
-}
-
-.third_col input, .third_col textarea {
-	width: 46%;
-	margin: 5px 0 10px 3.5%;
-	display: inline-block;
-}
-
-.third_col label {
-	text-align: right;
-	margin-left: 2%;
-	width: 37%;
-	display: inline-block;
-}
-
 .fourth_col {
 	padding: 0 2%;
 	width: 21%;
 	float: left;
 }
 
-.divider {
-	width: 96%;
-}
-
-.compound_search {
-	margin-left: 2%;
-	padding-bottom: 2%;
-	width: 96%;
-	display: none;
-	border: 1px solid #ccc;
-}
-
-.compound_search h3 {
-	margin: 0 -1px 0 -1px;
-	background: #94BA65;
-	line-height: 30px;
-	position: relative;
-	top: -1px;
-	color: white;
-	text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
-	text-align: center;
-	font-size: 16px;
-}
-
-#list_search {
-	margin: 0 0 0 1%;
-	width: 25%;
-}
-
-ul.library_list {
-	list-style: none;
-	margin: 2% 0 0 2%;
-}
-
-ul.library_list input {
-	width: auto;
-	height: 14px;
-	margin: 0 0 0 0;
-	cursor: pointer;
-}
-
-ul.compound_list {
-	list-style: none;
-	display: none;
-	padding-left: 35px;
-}
-
-ul.compound_list li {
-	float: left;
-	width: 25%;
-}
-
-.library_drop {
-	cursor: pointer;
-	background-image: url(../images/ui-icons_454545_256x240.png);
-	height: 16px;
-	width: 16px;
-	display: inline-block;
-}
-
-.arrow_right {
-	background-position: -32px -16px;
-}
-
-.arrow_down {
-	background-position: -64px -16px;
-}
-
 .clear {
 	clear: both;
-}
-
-.submit_row {
-	width: 92%;
-	margin: 2% 0 0 6%;
-}
-
-.submit_row input {
-	margin: 0 0 0 4% !important;
-}
-
-.submit_row label {
-	margin: 0;
-	display: inline-block;
 }
 
 .input_details {
@@ -301,29 +148,6 @@ ul.compound_list li {
 
 .accordion_content .compound_disp {
 	width: 10% !important;
-}
-
-.bottom {
-	width: 92%;
-	margin: 2% 0 0 4%;
-}
-
-input.submit {
-	background: 0;
-	border: 1px solid #4E4D4A;
-	font-weight: normal;
-	color: #353432;
-	padding: 10px;
-	display: block;
-	width: 96% !important;
-	margin: 15px 0 0 0;
-}
-
-input.submit:hover {
-	background: #4E4D4A;
-	border: 1px solid transparent;
-	text-shadow: 0px 0px transparent;
-	color: white;
 }
 
 .running_projects input.button {
@@ -373,4 +197,34 @@ label.download_input {
 
 .header.red {
 	background-color: #f2dede;
+}
+
+.submissions {
+	width: 100%;
+}
+
+.submission {
+	border-top: 1px dashed black;
+	border-bottom: 1px dashed black;
+	padding: 10px;
+}
+
+.submission .status {
+	width: 10%;
+}
+
+.submission .submissionIO {
+	width: 60%;
+}
+
+.submission .buttons {
+	width: 30%;
+}
+
+.data-list {
+	list-style: none;
+}
+
+.data-item span {
+	margin: 0;
 }

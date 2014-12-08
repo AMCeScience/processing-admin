@@ -25,9 +25,6 @@ function update_panel(project_id, processing_id) {
             graph('.graph_' + project.project_id, project.output.graph);
         }
 		
-		// Init slider
-		//init_slider(scope);
-		
         // Init the project buttons
         init_project_buttons();
 	}

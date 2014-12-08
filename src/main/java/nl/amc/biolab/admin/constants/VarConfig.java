@@ -56,11 +56,7 @@ public class VarConfig {
     	return 0;
     }
     
-    /**
-     * Get processing manager WSDL url
-     * @return Processing manager WSDL url
-     */
-    public static String getProcessingWSDL() {
-        return getItem("processing_wsdl");
+    public static String getProcessingResource() {
+        return getItem("processing_url");
     }
 }

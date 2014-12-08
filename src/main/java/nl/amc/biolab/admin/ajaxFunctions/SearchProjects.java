@@ -133,6 +133,7 @@ public class SearchProjects extends AjaxInterface {
     	SELECTS = new LinkedHashMap<String, String>();
         
         // Add selections
+    	SELECTS.put("DISTINCT po.ProcessingID", null);
         SELECTS.put("p.*", null);
         SELECTS.put("po.*", null);
         SELECTS.put("app.*", null);
@@ -289,7 +290,7 @@ public class SearchProjects extends AjaxInterface {
             
             while (statusIter.hasNext()) {
                 // WHERE status = xxxxx
-            	tempList.add(_getSQLBuilder().getWhere("(SELECT Value FROM Status as s WHERE s.SubmissionID = sub.SubmissionID ORDER BY s.StatusTime DESC LIMIT 1)", "LIKE", "'%" + statusIter.next().trim() + "%'"));
+            	tempList.add(_getSQLBuilder().getWhere("(SELECT Value FROM Status as s WHERE s.SubmissionID = sub.SubmissionID ORDER BY s.StatusTime DESC, s.StatusID DESC LIMIT 1)", "LIKE", "'%" + statusIter.next().trim() + "%'"));
             }
             
             tempMap.put(tempList, "OR");

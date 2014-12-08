@@ -45,11 +45,11 @@ function build_inside_project_html(project_data) {
 	                		<span>" + submission.status + "</span>\
                 		</td>\
                 		<td class='submissionIO'>\
-	                		<ul>";
+	                		<ul class='data-list'>";
 	            
 		        			$.each(submission.submissionIO, function(key, subIO) {
 		        				project_html += 
-		        					"<li>\
+		        					"<li class='data-item'>\
 		        						<span>" + subIO.data_element.name + "</span>\
 		        					</li>";
 		        			});

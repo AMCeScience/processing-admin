@@ -1,8 +1,20 @@
 package nl.amc.biolab.admin.ajaxFunctions;
 
+import java.io.IOException;
+
+import nl.amc.biolab.admin.ajaxHandlers.AjaxInterface;
 import nl.amc.biolab.admin.constants.VarConfig;
-import nl.amc.biolab.exceptions.PersistenceException;
-import nl.amc.biolab.persistencemanager.PersistenceManagerPlugin;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.ParseException;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
+
 import dockingadmin.crappy.logger.Logger;
 
 /**
@@ -10,34 +22,48 @@ import dockingadmin.crappy.logger.Logger;
  *
  * @author Allard van Altena
  */
-public class StatusUpdater extends VarConfig {
-    public StatusUpdater() {}
-    
-    public String updateStatus(Long processId) {        
-//        ProcessingManagerClient client = new ProcessingManagerClient(VarConfig.getProcessingWSDL());
-        
-        Logger.log("updating status...", Logger.debug);
-        
-        // Update the status through the processingmanager webservice
-//        client.updateStatus(processId);
-        
-        Logger.log("done", Logger.debug);
-        
-        // Open a session
-        PersistenceManagerPlugin db = new PersistenceManagerPlugin();
-        String newStatus = "";
-        
-        try {
-			db.init();
+public class StatusUpdater extends AjaxInterface {
+	public StatusUpdater() {
+	}
 
-	        // Get the updated status from the database
-	        newStatus = db.get.processing(processId).getSubmissions().iterator().next().getLastStatus().getValue();
-		} catch (PersistenceException e) {
-			Logger.log(e.getMessage(), Logger.exception);
-		} finally {
-			db.shutdown();
+	@Override
+	protected void _run() {
+		_updateStatus();
+	}
+
+	private void _updateStatus() {
+		JSONArray output = new JSONArray();
+		
+		Logger.log("updating status...", Logger.debug);
+		
+		HttpClient client = HttpClients.createDefault();
+		HttpGet httpGet = new HttpGet(VarConfig.getProcessingResource() + "/" + _getSearchTermEntry("processing_id"));
+		
+		try {
+			HttpResponse response = client.execute(httpGet);
+			
+			if (response.getStatusLine().getStatusCode() == 200) {
+				try {
+					output = (JSONArray) new JSONParser().parse(EntityUtils.toString(response.getEntity()));
+				} catch (ParseException e) {
+					e.printStackTrace();
+				} catch (org.json.simple.parser.ParseException e) {
+					e.printStackTrace();
+				}
+			}
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-        
-        return newStatus;
-    }
+		
+		Logger.log(output, Logger.debug);
+
+		Logger.log("done", Logger.debug);
+		
+        // Output
+		_getJSONObj().add("project_id", _getSearchTermEntry("project_id"));
+		_getJSONObj().add("processing_id", _getSearchTermEntry("processing_id"));
+		_getJSONObj().add("response", output);
+	}
 }

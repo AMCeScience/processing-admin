@@ -70,11 +70,11 @@ function trigger_search(scope) {
     }
     
     if (status == 'all') {
-    	status = 'in preparation, in progress, on hold, done, aborted, failed';
+    	status = 'in preparation, in progress, on hold, done, aborted, failed, resuming';
     }
     
     if (status == 'running') {
-    	status = 'in preparation, in progress, on hold';
+    	status = 'in preparation, in progress, on hold, resuming';
     }
     
     if (status == 'stopped') {

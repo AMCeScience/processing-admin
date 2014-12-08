@@ -21,7 +21,7 @@
 <html>
     <head>
         <!-- load CSS files -->
-        <link href="${pageContext.request.contextPath}/css/styles.css?v=126" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/css/styles.css?v=127" rel="stylesheet" type="text/css"/>
         <link href="${pageContext.request.contextPath}/css/jquery-ui.structure.css?v=101" rel="stylesheet" type="text/css"/>
         <link href="${pageContext.request.contextPath}/css/jquery-ui.theme.css?v=101" rel="stylesheet" type="text/css"/>
         
@@ -56,21 +56,21 @@
         <% } %>
 	
 		<!-- load generic javascript files -->
-		<script type="text/javascript" src="${pageContext.request.contextPath}/js/pagination.js?v=112"></script>
-		<script type="text/javascript" src="${pageContext.request.contextPath}/js/html-functions.js?v=112"></script>
-		<script type="text/javascript" src="${pageContext.request.contextPath}/js/search.js?v=126"></script>
-		<script type="text/javascript" src="${pageContext.request.contextPath}/js/combined.js?v=172"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/pagination.js?v=113"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/html-functions.js?v=113"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/search.js?v=127"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/combined.js?v=173"></script>
 			
 		<!-- load role specific javascript files -->        
     	<% if (request.isUserInRole("administrator")) { %>
-	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/admin-level/ajax-functions.js?v=112"></script>
-	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/admin-level/project-functions.js?v=128"></script>
-	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/admin-level/project-html-functions.js?v=173"></script>
+	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/admin-level/ajax-functions.js?v=113"></script>
+	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/admin-level/project-functions.js?v=129"></script>
+	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/admin-level/project-html-functions.js?v=174"></script>
     	<% } else { %>
-    		<script type="text/javascript" src="${pageContext.request.contextPath}/js/user-level/ajax-functions.js?v=112"></script>
-	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/user-level/project-functions.js?v=128"></script>
-	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/user-level/project-html-functions.js?v=173"></script>
-	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/user-level/output-graph.js?v=172"></script>
+    		<script type="text/javascript" src="${pageContext.request.contextPath}/js/user-level/ajax-functions.js?v=113"></script>
+	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/user-level/project-functions.js?v=129"></script>
+	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/user-level/project-html-functions.js?v=174"></script>
+	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/user-level/output-graph.js?v=173"></script>
     	<% } %>
     </head>
     <body>

@@ -39,7 +39,7 @@ function build_inside_project_html(project_data) {
             }
             
             project_html += "<div class='" + class_name + "'>\
-                <a href='/webdav/" + project_data.project_name.replace("_pilot", "") + "/" + data_element.name + "'>Name: " + data_element.name + "</a>";
+                <a href='" + data_element.uri.replace("http://localhost/webdav-curl", "") + "'>Name: " + data_element.name + "</a>";
 
             if (data_element.ligand_count !== null) {
                 project_html += "<span>Ligand count: " + data_element.ligand_count + "</span>";

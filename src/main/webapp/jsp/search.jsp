@@ -27,6 +27,7 @@
 		        <option value="all">All</option>
 		        <option value="in preparation">In Preparation</option>
 		        <option value="in progress">In Progress</option>
+		        <option value="resuming">Resuming</option>
 		        <option value="on hold">On Hold</option>
 		        <option value="done">Done</option>
 		        <option value="failed">Failed</option>
