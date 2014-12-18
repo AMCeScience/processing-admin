@@ -4,12 +4,6 @@ function do_search(dataArr, success_func) {
     ajax_call(dataArr, success_func, $('body').data('ajax-urls').searchUrl, "POST", false);
 }
 
-function do_search_and_update(dataArr, success_func) {
-    log('searchAndUpdateAjax function running');
-    
-    ajax_call(dataArr, success_func, $('body').data('ajax-urls').searchAndUpdateUrl, "POST", false);
-}
-
 function update_status(dataArr, success_func) {
     log('updateStatus function running');
 

@@ -1,6 +1,22 @@
 var search_scope = '.search_form';
 
 function project_display() {
+	$('input[name=admin_view]').change(function() {
+		var url = $('body').data('context-path');
+		
+		if ($(this).is(':checked')) {
+			$.getScript(url + '/js/admin-level/ajax-functions.js');
+			$.getScript(url + '/js/admin-level/project-functions.js');
+			$.getScript(url + '/js/admin-level/project-html-functions.js');
+		} else {
+			$.getScript(url + '/js/user-level/ajax-functions.js');
+			$.getScript(url + '/js/user-level/project-functions.js');
+			$.getScript(url + '/js/user-level/project-html-functions.js');
+		}
+		
+		trigger_search(search_scope);
+	});
+	
     // Bind search inputs to search function
     init_search(search_scope, after_search);
     

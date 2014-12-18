@@ -12,12 +12,13 @@ function update_panel(project_id, processing_id) {
 		var header = $('.' + header_div + project.project_id + project.processing_id);
 		
 		$(header).removeClass("red");
+		$(header).removeClass("orange");
 		$(header).removeClass("yellow");
 		$(header).removeClass("light-blue");
 		$(header).removeClass("green");
 		
 		$(header).addClass(get_header_color(project.overall_status));
-		$('.second', header).text(project.overall_status);
+		$('.third', header).text(project.overall_status);
 		
 		$('.project_content', '.' + data_div + project.project_id + project.processing_id).html(html);
 
@@ -64,8 +65,8 @@ function get_header_color(status) {
 		return "red";
 	}
 	
-	if (check_status(status, "aborted")) {
-		return "red";
+	if (check_status(status, "aborted") || check_status(status, "failed")) {
+		return "orange";
 	}
 	
 	if (check_status(status, "in preparation")) {

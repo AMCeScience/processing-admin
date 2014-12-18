@@ -8,14 +8,11 @@ import nl.amc.biolab.admin.ajaxHandlers.AjaxInterface;
 import nl.amc.biolab.admin.constants.VarConfig;
 
 import org.apache.http.HttpResponse;
-import org.apache.http.ParseException;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import org.json.simple.JSONArray;
-import org.json.simple.parser.JSONParser;
 
 import dockingadmin.crappy.logger.Logger;
 
@@ -33,7 +30,7 @@ public class SubmissionCancel extends AjaxInterface {
     }
     
     private void _cancelSubmission() {
-    	JSONArray output = new JSONArray();
+    	String output = "";
 
         Logger.log("cancelling submission...", Logger.debug);
 		
@@ -46,13 +43,7 @@ public class SubmissionCancel extends AjaxInterface {
 				HttpResponse response = client.execute(httpDelete);
 				
 				if (response.getStatusLine().getStatusCode() == 200) {
-					try {
-						output = (JSONArray) new JSONParser().parse(EntityUtils.toString(response.getEntity()));
-					} catch (ParseException e) {
-						e.printStackTrace();
-					} catch (org.json.simple.parser.ParseException e) {
-						e.printStackTrace();
-					}
+					output = EntityUtils.toString(response.getEntity());				
 				}
 			} catch (ClientProtocolException e) {
 				e.printStackTrace();

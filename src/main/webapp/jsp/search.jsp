@@ -42,4 +42,13 @@
     </form>
 
     <hr/>
+    
+    <% if (request.isUserInRole("administrator")) { %>
+    	<div class="admin_view">
+		    <label for="admin_view">Show Admin</label>
+		    <input name="admin_view" type="checkbox" checked="checked"/>
+	    </div>
+    <% } %>
+    
+    <hr/>
 </div>
