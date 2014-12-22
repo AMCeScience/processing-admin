@@ -26,6 +26,22 @@ function update_panel(project_id, processing_id) {
             graph('.graph_' + project.project_id, project.output.graph);
         }
 		
+		if ($('.tooltip') !== undefined) {
+			$('.tooltip').bind("mouseleave", function (event) {
+			    event.stopImmediatePropagation();
+			    var fixed = setTimeout('$(".tooltip").tooltip("close")', 250);
+			    
+			    $(".ui-tooltip").hover(
+			        function () {
+			            clearTimeout(fixed);
+			        },
+			        function () {
+			            $(".tooltip").tooltip("close");
+			        }
+			    );
+			}).tooltip({});
+		}
+		
         // Init the project buttons
         init_project_buttons();
 	}

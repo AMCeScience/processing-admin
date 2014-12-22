@@ -826,9 +826,11 @@ button.ui-button::-moz-focus-inner {
 	padding: 8px;
 	position: absolute;
 	z-index: 9999;
-	max-width: 300px;
+	max-width: 600px;
 	-webkit-box-shadow: 0 0 5px #aaa;
 	box-shadow: 0 0 5px #aaa;
+	white-space: pre-line;
+	word-wrap: break-word;
 }
 body .ui-tooltip {
 	border-width: 2px;

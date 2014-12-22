@@ -48,9 +48,16 @@ function build_inside_project_html(project_data) {
 	                		<ul class='data-list'>";
 	            
 		        			$.each(submission.submissionIO, function(key, subIO) {
+		        				var subIO_tooltip = "";
+		        				
+		        				$.each(subIO.data_element, function(key, val) {
+		        					// Insert tooltip line with linebreak
+	        						subIO_tooltip += key + ": " + val + "&#013; ";
+		        				});
+		        				
 		        				project_html += 
 		        					"<li class='data-item'>\
-		        						<span>" + subIO.data_element.name + "</span>\
+		        						<span class='tooltip' title='" + subIO_tooltip + "'>" + subIO.data_element.name + "</span>\
 		        					</li>";
 		        			});
 	            			

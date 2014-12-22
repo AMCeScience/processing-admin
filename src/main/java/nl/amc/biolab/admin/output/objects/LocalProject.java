@@ -3,6 +3,7 @@ package nl.amc.biolab.admin.output.objects;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 
 import nl.amc.biolab.datamodel.objects.DataElement;
@@ -10,6 +11,7 @@ import nl.amc.biolab.datamodel.objects.Processing;
 import nl.amc.biolab.datamodel.objects.Project;
 import nl.amc.biolab.datamodel.objects.Submission;
 import nl.amc.biolab.datamodel.objects.SubmissionIO;
+import nl.amc.biolab.datamodel.objects.Value;
 import dockingadmin.crappy.logger.Logger;
 
 /**
@@ -114,8 +116,19 @@ public class LocalProject extends Logger {
     private HashMap<String, Object> _getDataElementMap(DataElement dataEl) {
     	HashMap<String, Object> dataMap = new HashMap<String, Object>();
     	
+    	// Get all stored keys and put them in the output
+    	if (dataEl.getAllValues() != null) {
+    		Iterator<Value> iter = dataEl.getAllValues().iterator();
+    		
+    		while(iter.hasNext()) {
+    			Value this_val = iter.next();
+    			
+    			dataMap.put(this_val.getKey().getName(), this_val.getValue());
+    		}
+    	}
+
+    	dataMap.put("database id", dataEl.getDbId());
     	dataMap.put("name", dataEl.getName());
-    	dataMap.put("ligand_count", dataEl.getValueByName("ligand_count"));
     	dataMap.put("uri", dataEl.getURI());
     	dataMap.put("type", dataEl.getType());
     	dataMap.put("format", dataEl.getFormat());

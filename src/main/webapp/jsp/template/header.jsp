@@ -20,8 +20,8 @@
 <html>
     <head>
         <!-- load CSS files -->
-        <link href="${pageContext.request.contextPath}/css/styles.css?v=130" rel="stylesheet" type="text/css"/>
-        <link href="${pageContext.request.contextPath}/css/jquery-ui.structure.css?v=101" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/css/styles.css?v=131" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/css/jquery-ui.structure.css?v=103" rel="stylesheet" type="text/css"/>
         <link href="${pageContext.request.contextPath}/css/jquery-ui.theme.css?v=101" rel="stylesheet" type="text/css"/>
         
         <!-- load javascript libraries -->
@@ -59,7 +59,7 @@
 	
 		<!-- load generic javascript files -->
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/pagination.js?v=113"></script>
-		<script type="text/javascript" src="${pageContext.request.contextPath}/js/html-functions.js?v=114"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/html-functions.js?v=119"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/search.js?v=127"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/combined.js?v=177"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/user-level/output-graph.js?v=173"></script>
@@ -68,7 +68,7 @@
     	<% if (request.isUserInRole("administrator")) { %>
 	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/admin-level/ajax-functions.js?v=113"></script>
 	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/admin-level/project-functions.js?v=129"></script>
-	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/admin-level/project-html-functions.js?v=174"></script>
+	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/admin-level/project-html-functions.js?v=177"></script>
     	<% } else { %>
     		<script type="text/javascript" src="${pageContext.request.contextPath}/js/user-level/ajax-functions.js?v=113"></script>
 	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/user-level/project-functions.js?v=129"></script>

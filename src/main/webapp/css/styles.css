@@ -236,3 +236,8 @@ label.download_input {
 .data-item span {
 	margin: 0;
 }
+
+.admin_view {
+	width: 7%;
+	margin-left: 2%;
+}
