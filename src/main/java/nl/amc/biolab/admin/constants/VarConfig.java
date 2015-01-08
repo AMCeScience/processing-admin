@@ -56,7 +56,31 @@ public class VarConfig {
     	return 0;
     }
     
-    public static String getProcessingResource() {
-        return getItem("processing_url");
+    public static String getFilePath() {
+        return getItem("project_root");
     }
+    
+    public static String getProjectFilePath(String projectName) {
+        return getFilePath() + projectName + "/";
+    }
+    
+    public static String getProcessingResource() {
+        return getItem("processing_resource");
+    }
+
+	public static String getOutputUnzipLocation(String projectName) {
+		return getProjectFilePath(projectName) + getItem("output_unzip_location");
+	}
+
+	public static String getOutputCSVExt() {
+		return getItem("output_csv_ext");
+	}
+	
+	public static String getOutputExt() {
+		return getItem("output_file_ext");
+	}
+
+	public static String getOutputFilePath(String projectName) {
+		return getProjectFilePath(projectName) + getItem("output_file_name") + getOutputExt();
+	}
 }

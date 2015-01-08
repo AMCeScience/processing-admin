@@ -238,6 +238,17 @@ label.download_input {
 }
 
 .admin_view {
-	width: 7%;
+	width: 10%;
 	margin-left: 2%;
+}
+
+.admin_view label {
+	margin: 0;
+	display: inline;
+}
+
+.admin_view input {
+	margin: 0 0 0 5px !important;
+	height: 20px;
+	display: inline;
 }

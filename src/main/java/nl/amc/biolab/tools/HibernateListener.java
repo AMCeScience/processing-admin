@@ -9,13 +9,11 @@ import nl.amc.biolab.datamodel.manager.HibernateUtil;
 import dockingadmin.crappy.logger.Logger;
 
 public class HibernateListener implements ServletContextListener {
-	private final String file_path = System.getProperty("catalina.base") + "/conf/config.json";
-
     public void contextInitialized(ServletContextEvent event) {
         try {
         	System.out.println("################################### HERE");
             // Initialise configuration manager for this portlet
-			new ConfigurationManager(file_path);
+			ConfigurationManager.init();
 			
 			System.out.println("################################### HERE 2");
 	        // Initialise logger for this portlet

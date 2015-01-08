@@ -4,8 +4,8 @@ function project_html(project_data) {
     return html =
         "<h3 class='header " + header_class + " " + header_div + project_data.project_id + project_data.processing_id + "'>\
         	<span class='header-cols first'>" + project_data.date_started + "</span>\
-    		| <span class='header-cols second'>" + project_data.overall_status + "</span>\
-			| <span class='header-cols third'>" + project_data.project_name + "</span>\
+        	| <span class='header-cols second'>" + project_data.project_name + "</span>\
+    		| <span class='header-cols third'>" + project_data.overall_status + "</span>\
 		</h3>\
         <div class='project_data_div " + data_div + project_data.project_id + project_data.processing_id + "' data-project=''>\
             <div class='accordion_content'>\
@@ -41,7 +41,7 @@ function build_inside_project_html(project_data) {
             project_html += "<div class='" + class_name + "'>\
                 <a href='" + data_element.uri.replace("http://localhost/webdav-curl", "") + "'>Name: " + data_element.name + "</a>";
 
-            if (data_element.ligand_count !== null) {
+            if (data_element.ligand_count !== null && data_element.ligand_count !== undefined) {
                 project_html += "<span>Ligand count: " + data_element.ligand_count + "</span>";
             }
 
@@ -69,9 +69,10 @@ function build_inside_project_html(project_data) {
         
         project_html += "</div>";
         
-        if (project_data.overall_status.indexOf("In Progress") > -1
-        		|| project_data.overall_status.indexOf("On Hold") > -1) {
+        if (project_data.output != undefined && project_data.overall_status.indexOf("Done") < 0) {
         	project_html += "<input class='button partial-result' type='button' value='Get Partial Results'/>";
+        } else {
+        	project_html += "No partial data available.";
         }
         
         project_html += "<span>Last update: " + project_data.last_update + "</span>"
@@ -82,8 +83,8 @@ function build_inside_project_html(project_data) {
 		project_html += "<input class='button details' data-submission_id='" + project_data.submissions[0].submission_id + "' type='button' value='Details'/>";
 	}
 
-    // Job is done
-    if (project_data.overall_status.indexOf("Done") > -1) {
+    // Job has output
+    if (project_data.output != undefined) {
         project_html +=
         "<div class='outcomes_items_wrapper'>\
             <h2>Output</h2>\
@@ -95,18 +96,20 @@ function build_inside_project_html(project_data) {
             <input class='download_input' name='download_input' type='text' style='display:none;' value='100'/>\
             <label class='download_input' style='display:none;' for='download_input'>%</label>\
             \
-            <span>Selected number of compounds: <span class='compound_disp'>" + project_data.compound_count + "</span></span>\
+            <!--span>Selected number of compounds: <span class='compound_disp'>" + project_data.compound_count + "</span></span-->\
             \
-            <input name='max_compounds' type='hidden' value='" + project_data.compound_count + "'/>\
-            \
-            <input class='download button' type='button' value='Download Data'/>";
+            <input name='max_compounds' type='hidden' value='" + project_data.compound_count + "'/>";
+            
+        if (project_data.overall_status.indexOf("Done") > -1) {
+        	project_html += "<input class='download button' type='button' value='Download Data'/>";
 
             // If no provenance exists for this project do not display it
-            if (project_data.provenance_count * 1 !== 0) {
+            if (project_data.provenance_count !== undefined && project_data.provenance_count * 1 !== 0) {
                 project_html +=
                 "<span>This experiment is linked to " + project_data.provenance_count + " others</span>\
                 <input class='button' type='button' value='View Provenance'/>";
             }
+        }
         
         project_html += "</div>";
     }

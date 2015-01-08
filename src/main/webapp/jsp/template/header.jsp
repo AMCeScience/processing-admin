@@ -20,14 +20,16 @@
 <html>
     <head>
         <!-- load CSS files -->
-        <link href="${pageContext.request.contextPath}/css/styles.css?v=131" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/css/styles.css?v=134" rel="stylesheet" type="text/css"/>
         <link href="${pageContext.request.contextPath}/css/jquery-ui.structure.css?v=103" rel="stylesheet" type="text/css"/>
-        <link href="${pageContext.request.contextPath}/css/jquery-ui.theme.css?v=101" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/css/jquery-ui.theme.css?v=102" rel="stylesheet" type="text/css"/>
         
         <!-- load javascript libraries -->
         <script type="text/javascript" src="${pageContext.request.contextPath}/js/logger.js"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery/jquery.js"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery/jquery.flot.min.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery/jquery.flot.categories.min.js"></script>
 	
 		<!-- set javascript variables -->
 		<script type="text/javascript">
@@ -72,7 +74,7 @@
     	<% } else { %>
     		<script type="text/javascript" src="${pageContext.request.contextPath}/js/user-level/ajax-functions.js?v=113"></script>
 	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/user-level/project-functions.js?v=129"></script>
-	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/user-level/project-html-functions.js?v=174"></script>
+	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/user-level/project-html-functions.js?v=179"></script>
     	<% } %>
     </head>
     <body>

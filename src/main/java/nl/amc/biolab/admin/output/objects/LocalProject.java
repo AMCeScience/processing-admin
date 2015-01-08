@@ -1,25 +1,28 @@
 package nl.amc.biolab.admin.output.objects;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.List;
 
+import nl.amc.biolab.admin.output.tools.ProjectOutput;
 import nl.amc.biolab.datamodel.objects.DataElement;
 import nl.amc.biolab.datamodel.objects.Processing;
 import nl.amc.biolab.datamodel.objects.Project;
 import nl.amc.biolab.datamodel.objects.Submission;
 import nl.amc.biolab.datamodel.objects.SubmissionIO;
 import nl.amc.biolab.datamodel.objects.Value;
-import dockingadmin.crappy.logger.Logger;
 
 /**
  * Takes the nsgdm objects and creates object with more complete data
  *
  * @author Allard
  */
-public class LocalProject extends Logger {
+public class LocalProject {
     // Project items
     private Long ID = null;
     private String NAME = "";
@@ -27,6 +30,8 @@ public class LocalProject extends Logger {
     private String OWNER = null;
     private String APPLICATION = "";
     private String OVERALL_STATUS = "";
+    private HashMap<String, Object> PROJECT_OUTPUT = null;
+    private String UPDATE_DATE = "";
     
     // Processing items
     private Long PROCESSING_ID = null;
@@ -67,8 +72,12 @@ public class LocalProject extends Logger {
         _setOwner(processing.getUser().getFirstName() + " " + processing.getUser().getLastName());
         
         if (_getFullReport()) {
+        	List<Date> dates = new ArrayList<Date>();
+        	
 	        // Get submissions for this project + processing
 	        for(Submission sub : processing.getSubmissions()) {
+	        	dates.add(sub.getLastStatus().getTimestamp());
+	        	
 	        	// Clear IO variable
 	        	_resetSubmissionIOs();
 	        	
@@ -81,6 +90,21 @@ public class LocalProject extends Logger {
 	        	// Set submission
 	        	_setSubmission(sub);
 	        }
+	        
+	        if (dates.size() > 0) {
+	        	_setUpdateDate(Collections.max(dates));
+	        }
+	        
+	        ProjectOutput output = new ProjectOutput();
+        	
+	        // Check if output exists
+        	if (output.outputExists(project.getValueByName("folder_name"))) {
+        		
+        		// If output exists init the output map
+        		if (output.initOutput(project.getValueByName("folder_name"))) {
+        			_setProjectOutput(output.getMap());
+        		}
+        	}
         }
     }
          
@@ -101,8 +125,14 @@ public class LocalProject extends Logger {
         project.put("overall_status", _getProjectStatus());
         project.put("date_started", _getDateStarted().toString());
         
+        project.put("last_update", _getUpdateDate());
+        
         if (_getFullReport()) {
 		    project.put("submissions", _getSubmissions());
+		    
+		    if (_getProjectOutput() != null) {
+		    	project.put("output", _getProjectOutput());
+		    }
         }
         
         return project;
@@ -236,6 +266,22 @@ public class LocalProject extends Logger {
     	local.put("submissionIO", _getSubmissionIOs());
     	
     	SUBMISSIONS.add(local);
+    }
+    
+    private void _setProjectOutput(HashMap<String, Object> output) {
+    	PROJECT_OUTPUT = output;
+    }
+    
+    private HashMap<String, Object> _getProjectOutput() {
+    	return PROJECT_OUTPUT;
+    }
+    
+    private void _setUpdateDate(Date date) {
+    	UPDATE_DATE = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(date);
+    }
+    
+    private String _getUpdateDate() {
+    	return UPDATE_DATE;
     }
     
     private void _setFullReport(boolean report) {
