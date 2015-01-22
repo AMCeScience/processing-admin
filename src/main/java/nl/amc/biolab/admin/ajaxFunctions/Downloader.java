@@ -4,17 +4,17 @@ import nl.amc.biolab.admin.ajaxHandlers.AjaxInterface;
 import nl.amc.biolab.admin.constants.VarConfig;
 import nl.amc.biolab.datamodel.objects.Project;
 
-public class PartialResult extends AjaxInterface {
-	public PartialResult() {
+public class Downloader extends AjaxInterface {
+	public Downloader() {
 		
 	}
 	
 	@Override
 	protected void _run() {
-		_getPartialResult();
+		_getResult();
 	}
 
-	private void _getPartialResult() {
+	private void _getResult() {
 		Project project = _getPersistence().get.project(Long.parseLong(_getSearchTermEntry("project_id")));
 		
 		// Output the new status to the ajax request

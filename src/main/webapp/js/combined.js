@@ -17,6 +17,20 @@ function project_display() {
 		trigger_search(search_scope);
 	});
 	
+	$('.update-all').click(function() {
+		$(this).prop('disabled', true);
+		
+    	function ajax_continue(response) {
+    		location.reload();
+        	
+            return;
+        }
+        
+        var ajax_data = {};
+        
+        update_status(ajax_data, ajax_continue);
+    });
+	
     // Bind search inputs to search function
     init_search(search_scope, after_search);
     

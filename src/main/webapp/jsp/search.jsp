@@ -48,6 +48,10 @@
 		    <label for="admin_view">Show Admin</label>
 		    <input name="admin_view" type="checkbox" checked="checked"/>
 	    </div>
+	    
+	    <div class="refresh-all">
+	   		<input class='button update-all' type='button' value='Refresh All'/>
+	    </div>
     <% } %>
     
     <hr/>

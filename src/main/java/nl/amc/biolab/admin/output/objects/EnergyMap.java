@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
+import java.util.TreeMap;
 
 import dockingadmin.crappy.logger.Logger;
 
@@ -15,17 +15,13 @@ import dockingadmin.crappy.logger.Logger;
  */
 public class EnergyMap {
 	private boolean INITIALISED = false;
-    private final LinkedHashMap<String, String> ENERGY_MAP = new LinkedHashMap<String, String>();
-    private final ArrayList<ArrayList<String>> X_TICKS = new ArrayList<ArrayList<String>>();
-    private final ArrayList<ArrayList<String>> Y_TICKS = new ArrayList<ArrayList<String>>();
+    private final TreeMap<String, String> ENERGY_MAP = new TreeMap<String, String>();
     private final ArrayList<ArrayList<String>> ENERGY_LIST = new ArrayList<ArrayList<String>>();
     private int COUNT = 0;
     
     public EnergyMap() {}
     
     public void initEnergyMapping(String csvName) {
-    	_setInitialised();
-    	
         Logger.log(csvName, 3);
         
         try {
@@ -33,13 +29,20 @@ public class EnergyMap {
             
             String line;
             
+            int count = 0;
+            
             while((line = csvFile.readLine()) != null) {                
                 // Split name from row
                 String[] row = line.split(",", 2);
                 
                 if(row.length > 1) { 
                     // Add row to map
-                    _addRow(row[0], row[1].split(","));
+                	if (count < 100) {
+                		_addRow(row[0], row[1].split(","));
+                		
+                		count++;
+                	}
+                    _addFlotRow(row[0], row[1].split(","));
                     _addLigandCount();
                 }
             }
@@ -51,19 +54,11 @@ public class EnergyMap {
         	Logger.log(ex, 1);
         }
         
+        _setInitialised();
     }
     
-    public LinkedHashMap<String, String> getEnergyMap() {
-        return ENERGY_MAP;
-    }
-    
-    public LinkedHashMap<String, ArrayList<ArrayList<String>>> getEnergyMapForFlot() {
-        LinkedHashMap<String, ArrayList<ArrayList<String>>> data = new LinkedHashMap<String, ArrayList<ArrayList<String>>>();
-        
-        data.put("xaxis", X_TICKS);
-        data.put("yaxis", Y_TICKS);
-        
-        return data;
+    public TreeMap<String, String> getEnergyMap() {
+    	return ENERGY_MAP;
     }
     
     public ArrayList<ArrayList<String>> getEnergyListForFlot() {
@@ -88,8 +83,10 @@ public class EnergyMap {
     
     private void _addRow(String name, String[] row) {
         ENERGY_MAP.put(name, row[0]);
-        
-        ArrayList<String> tick = new ArrayList<String>();
+    }
+    
+    private void _addFlotRow(String name, String[] row) {
+    	ArrayList<String> tick = new ArrayList<String>();
         
         tick.add(name);
         tick.add(row[0]);

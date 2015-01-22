@@ -48,15 +48,15 @@ function init_project_buttons() {
 	});
     
     $('.download').click(function() {
-        var data = $(this).closest('.project_data_div').data('project');
-        
         function ajaxContinue(response) {
             window.location = response.redirect;
         }
         
+        var data = $(this).closest('.project_data_div').data('project');
+        
         var ajax_data = {
             project_id: data.project_id,
-            project_name: data.project_name,
+            processing_id: data.processing_id,
             compound_count: $('input[name=max_compounds]', $(this).parent()).val()
         };
         
@@ -65,7 +65,7 @@ function init_project_buttons() {
     
     $('.partial-result').click(function() {
     	function ajaxContinue(response) {
-    		alert("Hello World!");
+    		window.location = response.redirect;
     	}
     	
     	var project_data = $(this).closest('.project_data_div').data('project');

@@ -32,38 +32,38 @@ public class StatusUpdater extends AjaxInterface {
 	}
 
 	private void _updateStatus() {
-		JSONArray output = new JSONArray();
+//		JSONArray output = new JSONArray();
 		
 		Logger.log("updating status...", Logger.debug);
 		
 		HttpClient client = HttpClients.createDefault();
-		HttpGet httpGet = new HttpGet(VarConfig.getProcessingResource() + "/" + _getSearchTermEntry("processing_id"));
+		HttpGet httpGet = new HttpGet(VarConfig.getProcessingResource());
 		
 		try {
 			HttpResponse response = client.execute(httpGet);
 			
-			if (response.getStatusLine().getStatusCode() == 200) {
-				try {
-					output = (JSONArray) new JSONParser().parse(EntityUtils.toString(response.getEntity()));
-				} catch (ParseException e) {
-					e.printStackTrace();
-				} catch (org.json.simple.parser.ParseException e) {
-					e.printStackTrace();
-				}
-			}
+//			if (response.getStatusLine().getStatusCode() == 200) {
+//				try {
+//					output = (JSONArray) new JSONParser().parse(EntityUtils.toString(response.getEntity()));
+//				} catch (ParseException e) {
+//					e.printStackTrace();
+//				} catch (org.json.simple.parser.ParseException e) {
+//					e.printStackTrace();
+//				}
+//			}
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		Logger.log(output, Logger.debug);
+//		Logger.log(output, Logger.debug);
 
 		Logger.log("done", Logger.debug);
 		
         // Output
 		_getJSONObj().add("project_id", _getSearchTermEntry("project_id"));
 		_getJSONObj().add("processing_id", _getSearchTermEntry("processing_id"));
-		_getJSONObj().add("response", output);
+//		_getJSONObj().add("response", output);
 	}
 }

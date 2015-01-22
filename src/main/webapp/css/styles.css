@@ -2,6 +2,10 @@ body {
 	font-size: 13px;
 }
 
+body.modal-open {
+    overflow: hidden;
+}
+
 textarea {
 	resize: none;
 }
@@ -47,7 +51,7 @@ form {
 }
 
 .ui-dialog-titlebar {
-	display: none;
+	/*display: none;*/
 }
 
 .spinner {
@@ -154,7 +158,12 @@ form {
 	width: 10% !important;
 }
 
-.running_projects input.button {
+.refresh-all input {
+	height: auto;
+	margin: -2px 0 0 0 !important;
+}
+
+.running_projects input.button, .refresh-all .button {
 	width: auto;
 	padding: 5px 20px;
 	margin: 0 10px 15px 0;
@@ -162,7 +171,7 @@ form {
 	background: #fff;
 }
 
-.running_projects input.button:hover {
+.running_projects input.button:hover, , .refresh-all .button {
 	border: 1px solid #000;
 	background: #999;
 }
@@ -240,6 +249,7 @@ label.download_input {
 .admin_view {
 	width: 10%;
 	margin-left: 2%;
+	display: inline-block;
 }
 
 .admin_view label {
@@ -251,4 +261,24 @@ label.download_input {
 	margin: 0 0 0 5px !important;
 	height: 20px;
 	display: inline;
+}
+
+.refresh-all {
+	width: 10%;
+	margin-left: 2%;
+	display: inline-block;
+}
+
+table.ligands-table {
+	width: 100%;
+}
+
+table.ligands-table tr.header-row {
+	font-weight: bold;
+	font-size: 14px;
+}
+
+table.ligands-table tr td {
+	padding: 3px 10px;
+	border-bottom: 1px solid #ccc;
 }

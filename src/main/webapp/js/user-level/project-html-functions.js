@@ -39,44 +39,20 @@ function build_inside_project_html(project_data) {
             }
             
             project_html += "<div class='" + class_name + "'>\
-                <a href='" + data_element.uri.replace("http://localhost/webdav-curl", "") + "'>Name: " + data_element.name + "</a>";
+                <a href='" + data_element.uri.replace("http://localhost/webdav-curl", "/webdav") + "'>Name: " + data_element.name + "</a>";
 
             if (data_element.ligand_count !== null && data_element.ligand_count !== undefined) {
                 project_html += "<span>Ligand count: " + data_element.ligand_count + "</span>";
             }
 
-            project_html += "<span>Format: " + data_element.format + "</span>\
-                </div>";
+            // not in processing manager removed for the moment
+            //project_html += "<span>Format: " + data_element.format + "</span>\
+            project_html += "</div>";
             
             count++;
         });
     
     project_html += "</div><div class='clear'></div>";
-
-    // Job is in progress
-    if (project_data.overall_status.indexOf("In Progress") > -1
-			|| project_data.overall_status.indexOf("In Preparation") > -1
-			|| project_data.overall_status.indexOf("On Hold") > -1
-			|| project_data.overall_status.indexOf("Resuming")) {
-        project_html +=
-        "<div class='in_process_items_wrapper'>\
-            <h2>Status</h2>\
-            <span class='project_status_disp'>" + project_data.submissions[0].status + "</span>";
-        	
-    	// Remove from UI for now
-    	//TODO check if this will be put back into the UI or this is a cronjob function
-		//project_html += "<input class='button update' type='button' value='Update'/>";
-        
-        project_html += "</div>";
-        
-        if (project_data.output != undefined && project_data.overall_status.indexOf("Done") < 0) {
-        	project_html += "<input class='button partial-result' type='button' value='Get Partial Results'/>";
-        } else {
-        	project_html += "No partial data available.";
-        }
-        
-        project_html += "<span>Last update: " + project_data.last_update + "</span>"
-    }
     
     // Job is done (but failed)
     if (project_data.overall_status.indexOf("Aborted") > -1 || project_data.overall_status.indexOf("Failed") > -1) {
@@ -89,6 +65,8 @@ function build_inside_project_html(project_data) {
         "<div class='outcomes_items_wrapper'>\
             <h2>Output</h2>\
             <div class='graph graph_" + project_data.project_id + "'></div>\
+            \
+    		<input class='button view-table' type='button' value='View Table'/><br/>\
             \
             <span class='bold' style='display:none;'>Select % of data to download</span>\
             <div class='download_slider' style='display:none;'></div>\
@@ -112,6 +90,26 @@ function build_inside_project_html(project_data) {
         }
         
         project_html += "</div>";
+    }
+    
+    // Job is in progress
+    if (project_data.overall_status.indexOf("In Progress") > -1
+			|| project_data.overall_status.indexOf("In Preparation") > -1
+			|| project_data.overall_status.indexOf("On Hold") > -1
+			|| project_data.overall_status.indexOf("Resuming") > -1) {
+        project_html +=
+        "<div class='in_process_items_wrapper'>\
+            <h2>Status</h2>\
+            <span class='project_status_disp'>" + project_data.submissions[0].status + "</span>\
+        </div>";
+        
+        if (project_data.output != undefined) {
+        	project_html += "<input class='button partial-result' type='button' value='Get Partial Results'/>";
+        } else {
+        	project_html += "No partial data available.";
+        }
+        
+        project_html += "<span>Last update: " + project_data.last_update + "</span>"
     }
     
     return project_html;

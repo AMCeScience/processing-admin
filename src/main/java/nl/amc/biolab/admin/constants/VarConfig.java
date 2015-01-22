@@ -83,4 +83,8 @@ public class VarConfig {
 	public static String getOutputFilePath(String projectName) {
 		return getProjectFilePath(projectName) + getItem("output_file_name") + getOutputExt();
 	}
+	
+	public static String getOutputWebdavPath(String projectName) {
+		return getItem("webdav_external") + projectName + "/" + getItem("output_file_name") + getOutputExt();
+	}
 }

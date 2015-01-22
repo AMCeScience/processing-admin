@@ -28,7 +28,7 @@ function build_inside_project_html(project_data) {
 					|| project_data.overall_status.indexOf("In Preparation") > -1
 					|| project_data.overall_status.indexOf("On Hold") > -1
 					|| project_data.overall_status.indexOf("Resuming") > -1) {
-					project_html += "<input class='button update' type='button' value='Refresh'/>";
+					//project_html += "<input class='button update' type='button' value='Refresh'/>";
 				}
 				
 				if (project_data.overall_status.indexOf("On Hold") > -1) {
@@ -57,7 +57,7 @@ function build_inside_project_html(project_data) {
 		        				
 		        				project_html += 
 		        					"<li class='data-item'>\
-		        						<span class='tooltip' title='" + subIO_tooltip + "'>" + subIO.data_element.name + "</span>\
+		        						<span class='portlet-tooltip' title='" + subIO_tooltip + "'>" + subIO.data_element.name + "</span>\
 		        					</li>";
 		        			});
 	            			
