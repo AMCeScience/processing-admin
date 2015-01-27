@@ -21,8 +21,8 @@
     <head>
         <!-- load CSS files -->
         <link href="${pageContext.request.contextPath}/css/styles.css?v=142" rel="stylesheet" type="text/css"/>
-        <link href="${pageContext.request.contextPath}/css/jquery-ui.structure.css?v=103" rel="stylesheet" type="text/css"/>
-        <link href="${pageContext.request.contextPath}/css/jquery-ui.theme.css?v=104" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/css/jquery-ui.structure.css?v=104" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/css/jquery-ui.theme.css?v=106" rel="stylesheet" type="text/css"/>
         
         <!-- load javascript libraries -->
         <script type="text/javascript" src="${pageContext.request.contextPath}/js/logger.js"></script>
@@ -58,7 +58,7 @@
 	
 		<!-- load generic javascript files -->
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/pagination.js?v=113"></script>
-		<script type="text/javascript" src="${pageContext.request.contextPath}/js/html-functions.js?v=122"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/html-functions.js?v=133"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/search.js?v=127"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/combined.js?v=180"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/user-level/output-graph.js?v=174"></script>
@@ -68,7 +68,7 @@
     	<% if (request.isUserInRole("administrator")) { %>
 	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/admin-level/ajax-functions.js?v=114"></script>
 	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/admin-level/project-functions.js?v=132"></script>
-	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/admin-level/project-html-functions.js?v=178"></script>
+	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/admin-level/project-html-functions.js?v=183"></script>
     	<% } else { %>
     		<script type="text/javascript" src="${pageContext.request.contextPath}/js/user-level/ajax-functions.js?v=113"></script>
 	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/user-level/project-functions.js?v=130"></script>

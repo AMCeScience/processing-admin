@@ -26,30 +26,6 @@ function init_project_buttons() {
 		
 		get_details(ajax_data, ajax_continue);
 	});
-	
-	// Update/Refresh button
-//    $('.update-all').click(function() {
-//    	function ajax_continue(response) {
-//        	//update_panel(response.project_id, response.processing_id, true);
-//    		
-//    		location.reload();
-//        	
-//            return;
-//        }
-//        
-//        //var project_data = $(this).closest('.project_data_div').data('project');
-//        //var submission_id = $(this).data('submission_id');
-//
-//        //$('.project_content', '.' + data_div + project_data.project_id + project_data.processing_id).html('<div class="spinner"></div>');
-//        
-//        var ajax_data = {
-//    		//project_id: project_data.project_id,
-//    		//processing_id: project_data.processing_id,
-//    		//submission_id: submission_id
-//        };
-//        
-//        update_status(ajax_data, ajax_continue);
-//    });
     
     // Cancel button
     $('.cancel').click(function() {

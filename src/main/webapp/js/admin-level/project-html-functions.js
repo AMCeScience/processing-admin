@@ -24,13 +24,6 @@ function build_inside_project_html(project_data) {
 	var project_html = 
 		"<h2>" + project_data.project_name + "</h2>\
 			<div class='top-buttons'>";
-				if (project_data.overall_status.indexOf("In Progress") > -1
-					|| project_data.overall_status.indexOf("In Preparation") > -1
-					|| project_data.overall_status.indexOf("On Hold") > -1
-					|| project_data.overall_status.indexOf("Resuming") > -1) {
-					//project_html += "<input class='button update' type='button' value='Refresh'/>";
-				}
-				
 				if (project_data.overall_status.indexOf("On Hold") > -1) {
 					project_html += "<input class='button resume-all' type='button' value='Resume All'/>";
 				}
@@ -48,16 +41,16 @@ function build_inside_project_html(project_data) {
 	                		<ul class='data-list'>";
 	            
 		        			$.each(submission.submissionIO, function(key, subIO) {
-		        				var subIO_tooltip = "";
+		        				var subIO_tooltip = "submission_id: " + submission.submission_id + "<br/>";
 		        				
 		        				$.each(subIO.data_element, function(key, val) {
 		        					// Insert tooltip line with linebreak
-	        						subIO_tooltip += key + ": " + val + "&#013; ";
+	        						subIO_tooltip += key + ": " + val + "<br/>";
 		        				});
 		        				
 		        				project_html += 
 		        					"<li class='data-item'>\
-		        						<span class='portlet-tooltip' title='" + subIO_tooltip + "'>" + subIO.data_element.name + "</span>\
+		        						<a class='portlet-tooltip' data-content='" + subIO_tooltip + "'>" + subIO.data_element.name + "</a>\
 		        					</li>";
 		        			});
 	            			

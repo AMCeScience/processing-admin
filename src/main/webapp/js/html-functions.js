@@ -31,19 +31,21 @@ function update_panel(project_id, processing_id) {
 		}
 		
 		if ($('.portlet-tooltip') !== undefined) {
-			$('.portlet-tooltip').bind("mouseleave", function (event) {
-			    event.stopImmediatePropagation();
-			    var fixed = setTimeout('$(".portlet-tooltip").tooltip("close")', 250);
-			    
-			    $(".ui-tooltip").hover(
-			        function () {
-			            clearTimeout(fixed);
-			        },
-			        function () {
-			            $(".portlet-tooltip").tooltip("close");
-			        }
-			    );
-			}).tooltip({});
+			$.each($('.portlet-tooltip'), function() {
+				$(this).click(function() {
+					$('.dialog-message').html($(this).data('content'));
+					
+					$('.dialog-div').dialog({
+			    		modal: true,
+			    		width: 500,
+			    		buttons: {
+			    			Ok: function() {
+			    				$(this).dialog('close');
+			    			}
+			    		}
+			        });
+				});
+			});
 		}
 		
         // Init the project buttons
