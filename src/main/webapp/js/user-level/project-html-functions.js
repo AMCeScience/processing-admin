@@ -45,9 +45,8 @@ function build_inside_project_html(project_data) {
                 project_html += "<span>Ligand count: " + data_element.ligand_count + "</span>";
             }
 
-            // not in processing manager removed for the moment
-            //project_html += "<span>Format: " + data_element.format + "</span>\
-            project_html += "</div>";
+            project_html += "<span>Format: " + data_element.format + "</span>\
+            	</div>";
             
             count++;
         });

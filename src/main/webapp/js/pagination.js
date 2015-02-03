@@ -13,7 +13,7 @@ function build_pagination_html(placement, el, pagination_data) {
 		html += "<a href='#' class='page-click " + selected + "' data-page_nr='" + count + "'>" + count + "</a>";
 	}
 	
-	html += "</div>";
+	html += "</div><div class='clear'></div>";
 	
 	$(html).insertAfter(placement);
 }

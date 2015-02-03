@@ -20,7 +20,7 @@
 <html>
     <head>
         <!-- load CSS files -->
-        <link href="${pageContext.request.contextPath}/css/styles.css?v=142" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/css/styles.css?v=144" rel="stylesheet" type="text/css"/>
         <link href="${pageContext.request.contextPath}/css/jquery-ui.structure.css?v=104" rel="stylesheet" type="text/css"/>
         <link href="${pageContext.request.contextPath}/css/jquery-ui.theme.css?v=106" rel="stylesheet" type="text/css"/>
         
@@ -57,10 +57,10 @@
         <% } %>
 	
 		<!-- load generic javascript files -->
-		<script type="text/javascript" src="${pageContext.request.contextPath}/js/pagination.js?v=113"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/pagination.js?v=117"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/html-functions.js?v=133"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/search.js?v=127"></script>
-		<script type="text/javascript" src="${pageContext.request.contextPath}/js/combined.js?v=180"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/combined.js?v=183"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/user-level/output-graph.js?v=174"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/user-level/output-table.js?v=112"></script>
 			
@@ -72,7 +72,7 @@
     	<% } else { %>
     		<script type="text/javascript" src="${pageContext.request.contextPath}/js/user-level/ajax-functions.js?v=113"></script>
 	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/user-level/project-functions.js?v=130"></script>
-	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/user-level/project-html-functions.js?v=185"></script>
+	        <script type="text/javascript" src="${pageContext.request.contextPath}/js/user-level/project-html-functions.js?v=186"></script>
     	<% } %>
     </head>
     <body>

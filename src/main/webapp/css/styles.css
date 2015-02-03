@@ -282,3 +282,12 @@ table.ligands-table tr td {
 	padding: 3px 10px;
 	border-bottom: 1px solid #ccc;
 }
+
+.pagination {
+	margin-top: 15px;
+}
+
+.pagination a {
+	margin-right: 5px;
+	float: left;
+}
